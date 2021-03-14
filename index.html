@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object Gauss</title>
+</head>
+<body>
+<table border="1" id="table">
+</table>
+<script>
+    function random_bm() {
+        let u = 0, v = 0;
+        while (u === 0)
+            u = Math.random();
+        return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v) * 2 | 0;
+    }
+    let arr = [] ;
+
+    for (let i = 0; i < 10; i++) {
+        let j = random_bm();
+        arr.push(j);
+    }
+    console.log('arr', arr);
+
+    let table = document.getElementById('table');
+
+    let result = new Set(arr);
+    let uniqueArray = Array.from(result);
+
+    for (let i = 0; i < uniqueArray.length; i++) {
+        let count = 0;
+        let k = uniqueArray[i];
+        for (let j = 0; j < arr.length; j++) {
+            if(k === arr[j]) {
+                count++;
+            }
+        }
+        let tr = document.createElement('tr');
+        table.append(tr);
+        let td = document.createElement('td');
+
+        ([k, count]).map( () =>
+            tr.append(td),
+            td.innerText = `${k} : ${count}`,
+        )
+
+        console.log('key:count', k + ':' + count);
+    }
+
+</script>
+
+</body>
+</html>
