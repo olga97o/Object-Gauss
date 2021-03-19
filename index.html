@@ -19,6 +19,7 @@
     for (let i = 0; i < 10; i++) {
         let j = random_bm();
         arr.push(j);
+        console.log(`${i} : ${j}`);
     }
     console.log('arr', arr);
 
@@ -26,6 +27,7 @@
 
     let result = new Set(arr);
     let uniqueArray = Array.from(result);
+    console.log(`|  key | value  |`);
 
     for (let i = 0; i < uniqueArray.length; i++) {
         let count = 0;
@@ -44,7 +46,7 @@
             td.innerText = `${k} : ${count}`,
         )
 
-        console.log('key:count', k + ':' + count);
+        console.log(`|   ${k}   |   ${count}   |   `);
     }
 
 </script>
